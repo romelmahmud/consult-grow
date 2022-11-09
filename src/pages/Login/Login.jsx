@@ -104,7 +104,10 @@ const Login = () => {
                 </p>
               </div>
             </form>
-            <hr className="my-6 border-gray-300 border" />
+            <hr className="mt-6 border-gray-300 border" />
+            <div className="text-center my-4">
+              <p className="text-xl text-gray-400">or</p>
+            </div>
             <div className="flex justify-between ">
               <button
                 // onClick={handleGoogleLogin}
@@ -116,7 +119,7 @@ const Login = () => {
                   alt=""
                   className="h-8 w-8 inline-block mr-3"
                 />
-                Google Login
+                Login with Google
               </button>
             </div>
           </div>
