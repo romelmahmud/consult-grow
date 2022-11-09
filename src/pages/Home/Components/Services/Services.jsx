@@ -14,8 +14,8 @@ const Services = () => {
         My Services<span className="text-green-600 text-6xl ml-1 ">.</span>
       </h2>
       <section className="py-10 md:py-16 my-5 md:my-10">
-        {services.map((service) => (
-          <li key={service._id}>{service.name}</li>
+        {services?.map((service) => (
+          <li key={service._id}>{service?.title}</li>
         ))}
       </section>
     </section>
