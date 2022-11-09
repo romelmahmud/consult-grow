@@ -30,7 +30,7 @@ const Header = () => {
               className="h-10 w-10 mr-3"
             />
             <Link to="/" className="font-extrabold md:text-3xl text-xl  ">
-              Consult <span className="text-green-500">&</span> Grow
+              Consult <span className="text-[#1cc65e]">&</span> Grow
             </Link>
           </div>
 
