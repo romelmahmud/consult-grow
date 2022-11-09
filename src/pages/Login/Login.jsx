@@ -1,16 +1,19 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-// import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
-// import { AuthContext } from "../../context/AuthContext/AuthContext";
+import { GoogleAuthProvider } from "firebase/auth";
+import { AuthContext } from "../../context/auth/AuthContext";
+
 import img from "../../assets/image/logo.png";
 import GoogleImg from "../../assets/image/google.png";
+
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  // const { loginProvider, signIn } = useContext(AuthContext);
-  // const googleProvider = new GoogleAuthProvider();
+
+  const { loginProvider, signIn, user } = useContext(AuthContext);
   const [error, setError] = useState(false);
 
+  const googleProvider = new GoogleAuthProvider();
   const from = location.state?.from?.pathname || "/";
 
   const submitHandler = (e) => {
@@ -21,24 +24,24 @@ const Login = () => {
 
     const email = form.email.value;
     const password = form.password.value;
+
+    signIn(email, password)
+      .then(() => {
+        form.reset();
+        navigate(from, { replace: true });
+      })
+      .catch((err) => setError(true));
   };
 
-  //   signIn(email, password)
-  //     .then(() => {
-  //       form.reset();
-  //       navigate(from, { replace: true });
-  //     })
-  //     .catch((err) => setError(true));
-  // };
-
-  // const handleGoogleLogin = () => {
-  //   setError(false);
-  //   loginProvider(googleProvider)
-  //     .then(() => {
-  //       navigate(from, { replace: true });
-  //     })
-  //     .catch((err) => setError(true));
-  // };
+  const handleGoogleLogin = () => {
+    setError(false);
+    loginProvider(googleProvider)
+      .then(() => {
+        console.log(user);
+        navigate(from, { replace: true });
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <section className="bg-gray-100">
@@ -71,8 +74,8 @@ const Login = () => {
               <div className="col-span-6 ">
                 <input
                   type="password"
-                  id="Password"
-                  name="password"
+                  id="current-password"
+                  name="current-password"
                   placeholder="password"
                   required
                   onFocus={() => setError(false)}
@@ -110,7 +113,7 @@ const Login = () => {
             </div>
             <div className="flex justify-between ">
               <button
-                // onClick={handleGoogleLogin}
+                onClick={handleGoogleLogin}
                 className="py-3 px-6 bg-white border-2 border-[#1cc65e] rounded  mr-4 text-[#1cc65e] text-xl font-medium hover:bg-gray-50 transition"
               >
                 {" "}

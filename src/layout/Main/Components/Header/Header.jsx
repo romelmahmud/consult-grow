@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
 import {
   Bars3Icon,
@@ -7,13 +7,14 @@ import {
 } from "@heroicons/react/24/solid";
 import Container from "../../../../shared/Container/Container";
 import logo from "../../../../assets/image/logo.png";
+import { AuthContext } from "../../../../context/auth/AuthContext";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
-  const [user, setUser] = useState("");
+  const { user, logOut } = useContext(AuthContext);
 
   const logoutHandler = () => {
-    console.log("logout");
+    logOut();
   };
 
   let activeStyle = {
@@ -71,15 +72,13 @@ const Header = () => {
               {user?.uid ? (
                 <>
                   <li className="ml-6 text-lg font-medium   hover:text-green-500 transition-all duration-300 ease-in-out">
-                    <img
-                      src={user?.photoURL ? user.photoURL : "./avatar.png"}
-                      alt={user?.displayName}
-                      title={user?.displayName}
-                      className="h-8 w-8 md:h-12 md:w-12 rounded-full cursor-pointer"
-                    ></img>
+                    <Link to="/userreviews">My Reviews</Link>
+                  </li>
+                  <li className="ml-6 text-lg font-medium   hover:text-green-500 transition-all duration-300 ease-in-out">
+                    <Link to="/addservice">Add Service</Link>
                   </li>
                   <li
-                    className="ml-6 text-lg font-medium   hover:text-green-500 transition-all duration-300 ease-in-out"
+                    className="ml-6 text-lg font-medium   hover:text-green-500 transition-all duration-300 ease-in-out cursor-pointer"
                     onClick={logoutHandler}
                   >
                     Logout
