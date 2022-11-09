@@ -2,7 +2,7 @@ import React from "react";
 import image from "../../../../assets/image/businessman.jpg";
 const Banner = () => {
   return (
-    <div className="flex flex-col md:flex-row gap-8 justify-between items-center py-10 md:py-16 my-5 md:my-10">
+    <section className="flex flex-col md:flex-row gap-8 justify-between items-center py-10 md:py-16 my-5 md:my-10">
       <div className="md:w-1/2">
         <h1 className="text-4xl md:text-6xl font-bold text-gray-900">
           <span className="text-[#1cc65e]">Grow</span> Your Business
@@ -21,7 +21,7 @@ const Banner = () => {
           alt="Businessmen"
         />
       </div>
-    </div>
+    </section>
   );
 };
 
