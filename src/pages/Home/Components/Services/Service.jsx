@@ -19,7 +19,7 @@ const Service = ({ service }) => {
 
         <Link
           to={`/services/${_id}`}
-          className="group mt-4 inline-flex items-center gap-1 text-lg font-medium text-green-600 border-2 px-3 py-1 rounded border-green-600 hover:bg-green-600 hover:text-white transition "
+          className="group mt-4 inline-flex items-center gap-1 text-lg font-medium text-[#1cc65e] border-2 px-3 py-1 rounded border-[#1cc65e] hover:bg-[#1cc65e] hover:text-white transition "
         >
           Learn more
         </Link>

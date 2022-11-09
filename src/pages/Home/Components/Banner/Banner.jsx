@@ -1,5 +1,6 @@
 import React from "react";
 import image from "../../../../assets/image/businessman.jpg";
+import { Link } from "react-router-dom";
 const Banner = () => {
   return (
     <section className="flex flex-col md:flex-row gap-8 justify-between items-center py-10 md:py-16 my-5 md:my-10">
@@ -12,6 +13,12 @@ const Banner = () => {
           I've over 10 years of experience helping business for finding perfect
           solution.
         </p>
+        <Link
+          to={`/services`}
+          className="  group mt-6  inline-flex items-center gap-1 text-xl font-medium hover:text-[#1cc65e] border-2 px-7 py-3 rounded border-[#1cc65e] bg-[#1cc65e] hover:bg-gray-50 text-white transition "
+        >
+          My Services
+        </Link>
       </div>
 
       <div className="md:w-1/2">
