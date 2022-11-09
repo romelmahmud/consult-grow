@@ -12,15 +12,15 @@ const Testimonials = () => {
           <img
             alt="Donald Simpson"
             src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            class="mx-auto h-24 w-24 rounded-full object-cover shadow-lg"
+            className="mx-auto h-24 w-24 rounded-full object-cover shadow-lg"
           />
 
-          <blockquote class="-mt-6 flex flex-col justify-between rounded-lg p-12 text-center ">
-            <p class="text-lg font-bold text-gray-700">Donald Simpson</p>
-            <p class="mt-1 text-xs font-medium text-gray-500">
+          <blockquote className="-mt-6 flex flex-col justify-between rounded-lg p-12 text-center ">
+            <p className="text-lg font-bold text-gray-700">Donald Simpson</p>
+            <p className="mt-1 text-xs font-medium text-gray-500">
               Chief Financial Officer, Jamaica International
             </p>
-            <p class="mt-4 text-sm text-gray-500">
+            <p className="mt-4 text-sm text-gray-500">
               When you are in the financial industry you know the image you have
               to project to people. You have to be agile and authoritative;
               Consulting with Romel is the way to go for financial institutions.
@@ -31,15 +31,15 @@ const Testimonials = () => {
           <img
             alt="Cint Le Corre"
             src="https://images.pexels.com/photos/3973335/pexels-photo-3973335.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            class="mx-auto h-24 w-24 rounded-full object-cover shadow-lg"
+            className="mx-auto h-24 w-24 rounded-full object-cover shadow-lg"
           />
 
-          <blockquote class="-mt-6 flex flex-col justify-between rounded-lg p-12 text-center ">
-            <p class="text-lg font-bold text-gray-700">Cint Le Corre</p>
-            <p class="mt-1 text-xs font-medium text-gray-500">
+          <blockquote className="-mt-6 flex flex-col justify-between rounded-lg p-12 text-center ">
+            <p className="text-lg font-bold text-gray-700">Cint Le Corre</p>
+            <p className="mt-1 text-xs font-medium text-gray-500">
               Chairman, Harmony Corporation
             </p>
-            <p class="mt-4 text-sm text-gray-500">
+            <p className="mt-4 text-sm text-gray-500">
               We thought a lot before choosing the Consulting because we wanted
               to sure our investment would yield results. This was clearly the
               best choice.
@@ -50,15 +50,15 @@ const Testimonials = () => {
           <img
             alt="Kampus Sorger"
             src="https://images.pexels.com/photos/7893740/pexels-photo-7893740.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            class="mx-auto h-24 w-24 rounded-full object-cover shadow-lg"
+            className="mx-auto h-24 w-24 rounded-full object-cover shadow-lg"
           />
 
-          <blockquote class="-mt-6 flex flex-col justify-between rounded-lg p-12 text-center ">
-            <p class="text-lg font-bold text-gray-700">Kampus Sorger</p>
-            <p class="mt-1 text-xs font-medium text-gray-500">
+          <blockquote className="-mt-6 flex flex-col justify-between rounded-lg p-12 text-center ">
+            <p className="text-lg font-bold text-gray-700">Kampus Sorger</p>
+            <p className="mt-1 text-xs font-medium text-gray-500">
               Chairman, Kreutz Airlines
             </p>
-            <p class="mt-4 text-sm text-gray-500">
+            <p className="mt-4 text-sm text-gray-500">
               The demands for financial institutions have changed a bit.
               Obfuscation is no longer accepted, But Consulting with Romel is so
               perfect.

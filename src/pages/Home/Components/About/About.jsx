@@ -17,8 +17,9 @@ const About = () => {
         </div>
         <div className="md:w-1/2 space-y-5">
           <p className="  text-lg  text-gray-600 ">
-            I am a, certified business consultant. I offer consulting, ideas and
-            resources for people or company to grow their business.
+            My name is Romel Mahmud. I am a Certified Business Consultant. I
+            offer consulting, ideas and resources for people or company to grow
+            their business.
           </p>
           <p className="  text-lg  text-gray-600">
             I counsel my clients on their key strategic issues, leveraging my
