@@ -17,7 +17,7 @@ const Services = () => {
   }, []);
 
   return (
-    <section className="py-10 md:py-16 my-5 md:my-10">
+    <section className="py-10 md:py-12 my-5 md:my-8">
       <h2 className="text-5xl font-bold text-center text-gray-900">
         My Services<span className="text-[#1cc65e] text-6xl ml-1 ">.</span>
       </h2>
