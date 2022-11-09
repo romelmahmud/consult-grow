@@ -1,10 +1,6 @@
 import React, { useState, useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
-import {
-  Bars3Icon,
-  XMarkIcon,
-  AcademicCapIcon,
-} from "@heroicons/react/24/solid";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import Container from "../../../../shared/Container/Container";
 import logo from "../../../../assets/image/logo.png";
 import { AuthContext } from "../../../../context/auth/AuthContext";
@@ -71,17 +67,35 @@ const Header = () => {
               </li>
               {user?.uid ? (
                 <>
-                  <li className="ml-6 text-lg font-medium   hover:text-green-500 transition-all duration-300 ease-in-out">
-                    <Link to="/userreviews">My Reviews</Link>
+                  <li>
+                    <NavLink
+                      style={({ isActive }) =>
+                        isActive ? activeStyle : undefined
+                      }
+                      className="ml-6 text-lg font-medium   hover:text-green-500 transition-all duration-300 ease-in-out"
+                      to={"/userreviews"}
+                    >
+                      My Reviews
+                    </NavLink>
                   </li>
-                  <li className="ml-6 text-lg font-medium   hover:text-green-500 transition-all duration-300 ease-in-out">
-                    <Link to="/addservice">Add Service</Link>
+                  <li>
+                    <NavLink
+                      style={({ isActive }) =>
+                        isActive ? activeStyle : undefined
+                      }
+                      className="ml-6 text-lg font-medium   hover:text-green-500 transition-all duration-300 ease-in-out"
+                      to={"/addservice"}
+                    >
+                      Add service
+                    </NavLink>
                   </li>
-                  <li
-                    className="ml-6 text-lg font-medium   hover:text-green-500 transition-all duration-300 ease-in-out cursor-pointer"
-                    onClick={logoutHandler}
-                  >
-                    Logout
+                  <li>
+                    <Link
+                      className="ml-6 text-lg font-medium   hover:text-green-500 transition-all duration-300 ease-in-out"
+                      onClick={logoutHandler}
+                    >
+                      Logout
+                    </Link>
                   </li>
                 </>
               ) : (
@@ -119,19 +133,35 @@ const Header = () => {
               </li>
               {user?.uid ? (
                 <>
-                  <li className=" text-lg font-medium   hover:text-green-500 transition-all duration-300 ease-in-out">
-                    <img
-                      src={user?.photoURL ? user.photoURL : "./avatar.png"}
-                      alt={user?.displayName}
-                      title={user?.displayName}
-                      className="h-8 w-8 md:h-12 md:w-12 rounded-full cursor-pointer"
-                    ></img>
+                  <li>
+                    <NavLink
+                      style={({ isActive }) =>
+                        isActive ? activeStyle : undefined
+                      }
+                      className="ml-6 text-lg font-medium   hover:text-green-500 transition-all duration-300 ease-in-out"
+                      to={"/userreviews"}
+                    >
+                      My Reviews
+                    </NavLink>
                   </li>
-                  <li
-                    className=" text-8xl font-medium   hover:text-green-500 transition-all duration-300 ease-in-out"
-                    onClick={logoutHandler}
-                  >
-                    Logout
+                  <li>
+                    <NavLink
+                      style={({ isActive }) =>
+                        isActive ? activeStyle : undefined
+                      }
+                      className="ml-6 text-lg font-medium   hover:text-green-500 transition-all duration-300 ease-in-out"
+                      to={"/addservice"}
+                    >
+                      Add service
+                    </NavLink>
+                  </li>
+                  <li>
+                    <Link
+                      className="ml-6 text-lg font-medium   hover:text-green-500 transition-all duration-300 ease-in-out"
+                      onClick={logoutHandler}
+                    >
+                      Logout
+                    </Link>
                   </li>
                 </>
               ) : (

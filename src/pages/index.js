@@ -4,7 +4,18 @@ import Login from "./Login/Login";
 import Register from "./Register/Register";
 import Service from "./Service/Service";
 import Services from "./Services/Services";
-import User from "./User/User";
+import UserReviews from "./UserReviews/UserReviews";
 import Error from "./Error/Error";
+import AddService from "./AddService/AddService";
 
-export { Home, Blog, Login, Register, Service, Services, User, Error };
+export {
+  Home,
+  Blog,
+  Login,
+  Register,
+  Service,
+  Services,
+  UserReviews,
+  Error,
+  AddService,
+};
