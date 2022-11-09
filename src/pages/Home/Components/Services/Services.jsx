@@ -23,7 +23,7 @@ const Services = () => {
       </h2>
 
       {loading ? (
-        <div className="py-10  my-5 h-12 flex justify-center items-center">
+        <div className="py-20  my-5  flex justify-center items-center">
           <Spinner size="xl" color="success" />
         </div>
       ) : (
