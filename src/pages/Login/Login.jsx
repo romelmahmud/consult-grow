@@ -62,7 +62,7 @@ const Login = () => {
               <div className="col-span-6">
                 <input
                   type="email"
-                  id="Email"
+                  id="email"
                   name="email"
                   required
                   placeholder="email"
@@ -74,8 +74,8 @@ const Login = () => {
               <div className="col-span-6 ">
                 <input
                   type="password"
-                  id="current-password"
-                  name="current-password"
+                  id="password"
+                  name="password"
                   placeholder="password"
                   required
                   onFocus={() => setError(false)}
