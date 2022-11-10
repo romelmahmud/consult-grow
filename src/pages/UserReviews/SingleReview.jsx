@@ -12,7 +12,7 @@ const SingleReview = ({ userReview, handleDelete }) => {
       <p className="text-md my-2 font-medium text-gray-600">Review: {review}</p>
       <div>
         <Link
-          to="/updatereview"
+          to={`/updatereview/${_id}`}
           className="bg-green-200 py-1 px-3 rounded text-green-600 mr-3"
         >
           update
