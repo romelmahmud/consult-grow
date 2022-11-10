@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth/AuthContext";
+import { toast } from "react-hot-toast";
 
 import Review from "./Review";
 
@@ -40,9 +41,15 @@ const ReviewSection = ({ serviceId }) => {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         form.reset();
-        // toast.success("Service Added Successfully.");
+        toast.success("Review Added Successfully.");
+        fetch(`https://consult-review.vercel.app/service/review/${serviceId}`)
+          .then((res) => res.json())
+          .then((data) => {
+            setReviews(data.data);
+            console.log(reviews);
+          });
       });
   };
 
