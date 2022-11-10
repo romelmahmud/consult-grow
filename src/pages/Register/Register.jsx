@@ -26,7 +26,7 @@ const Register = () => {
     const password = form.password.value;
 
     if (password.length < 8) {
-      setError("Password mast be 8 character long ");
+      // setError("Password mast be 8 character long ");
       toast.error("Password mast be 8 character long");
       return;
     }
@@ -36,7 +36,7 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        setError(false);
+        // setError(false);
         form.reset();
         handleUpdateUserProfile(name, imgUrl);
         toast.success("Account created Successfully.");

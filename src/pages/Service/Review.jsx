@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../context/auth/AuthContext";
 
 const Review = () => {
+  const { user } = useContext(AuthContext);
   return (
     <div className=" rounded-md">
       <div className="flex space-x-4 p-5 bg-gray-200 border-2 border-gray-300 rounded-t-sm ">

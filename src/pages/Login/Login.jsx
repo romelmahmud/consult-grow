@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { GoogleAuthProvider } from "firebase/auth";
 import { AuthContext } from "../../context/auth/AuthContext";
+import toast from "react-hot-toast";
 
 import img from "../../assets/image/logo.png";
 import GoogleImg from "../../assets/image/google.png";
@@ -28,6 +29,8 @@ const Login = () => {
     signIn(email, password)
       .then(() => {
         form.reset();
+        toast.success("login Successful");
+
         navigate(from, { replace: true });
       })
       .catch((err) => setError(true));
