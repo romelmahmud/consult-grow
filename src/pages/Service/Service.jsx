@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Spinner } from "flowbite-react";
 import Container from "../../shared/Container/Container";
 import ServiceInfo from "./ServiceInfo";
+import ReviewSection from "./ReviewSection";
 
 const Service = () => {
   const { id } = useParams();
@@ -26,8 +27,9 @@ const Service = () => {
           <Spinner size="xl" color="success" />
         </div>
       ) : (
-        <section className="py-10  my-5  ">
+        <section className="py-5 px-8 my-10 bg-white rounded-sm shadow-md ">
           <ServiceInfo serviceData={serviceData} />
+          <ReviewSection />
         </section>
       )}
     </Container>
