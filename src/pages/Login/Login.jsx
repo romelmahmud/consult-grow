@@ -46,7 +46,7 @@ const Login = () => {
   return (
     <section className="bg-gray-100">
       <div className="flex justify-center items-center lg:min-h-screen  lg:grid-cols-12">
-        <div className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:py-10 lg:px-10 xl:col-span-6   rounded-md bg-white">
+        <div className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:py-10 lg:px-10 xl:col-span-6   rounded-md bg-white shadow-xl">
           <div className="max-w-xl lg:max-w-3xl">
             <div className="flex items-center justify-center mb-6">
               <img src={img} alt="" className="h-12 w-12 mr-4" />

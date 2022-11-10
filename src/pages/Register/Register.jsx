@@ -1,50 +1,77 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-// import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
-// import { AuthContext } from "../../context/AuthContext/AuthContext";
+import { GoogleAuthProvider } from "firebase/auth";
+import { AuthContext } from "../../context/auth/AuthContext";
+
 import img from "../../assets/image/logo.png";
 import GoogleImg from "../../assets/image/google.png";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  // const { loginProvider, signIn } = useContext(AuthContext);
-  // const googleProvider = new GoogleAuthProvider();
+  const { loginProvider, createUser, updateUserProfile } =
+    useContext(AuthContext);
+  const googleProvider = new GoogleAuthProvider();
   const [error, setError] = useState(false);
 
   const from = location.state?.from?.pathname || "/";
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-    setError(false);
-
-    const form = e.target;
-
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const imgUrl = form.imgUrl.value;
     const email = form.email.value;
     const password = form.password.value;
+
+    if (password.length < 8) {
+      setError("Password mast be 8 character long ");
+      toast.error("Password mast be 8 character long");
+      return;
+    }
+    console.log(name, imgUrl, email, password);
+
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        setError(false);
+        form.reset();
+        handleUpdateUserProfile(name, imgUrl);
+        toast.success("Account created Successfully.");
+        navigate("/");
+      })
+      .catch((e) => {
+        console.error(e);
+        setError(e.message);
+      });
   };
 
-  //   signIn(email, password)
-  //     .then(() => {
-  //       form.reset();
-  //       navigate(from, { replace: true });
-  //     })
-  //     .catch((err) => setError(true));
-  // };
+  const handleUpdateUserProfile = (name, imgUrl) => {
+    const profile = {
+      displayName: name,
+      photoURL: imgUrl,
+    };
 
-  // const handleGoogleLogin = () => {
-  //   setError(false);
-  //   loginProvider(googleProvider)
-  //     .then(() => {
-  //       navigate(from, { replace: true });
-  //     })
-  //     .catch((err) => setError(true));
-  // };
+    updateUserProfile(profile)
+      .then(() => {})
+      .catch((error) => setError(error.message));
+  };
+
+  const handleGoogleLogin = () => {
+    setError(false);
+    loginProvider(googleProvider)
+      .then(() => {
+        navigate(from, { replace: true });
+      })
+      .catch((err) => setError(true));
+  };
 
   return (
-    <section className="bg-gray-100">
+    <section className="bg-gray-100 ">
       <div className="flex justify-center items-center lg:min-h-screen  lg:grid-cols-12">
-        <div className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:py-10 lg:px-10 xl:col-span-6   rounded-md bg-white">
+        <div className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:py-10 lg:px-10 xl:col-span-6   rounded-md bg-white shadow-xl">
           <div className="max-w-xl lg:max-w-3xl">
             <div className="flex items-center justify-center mb-6">
               <img src={img} alt="" className="h-12 w-12 mr-4" />
@@ -54,7 +81,7 @@ const Register = () => {
             </div>
 
             <form
-              onSubmit={submitHandler}
+              onSubmit={handleSubmit}
               className="mt-4 grid grid-cols-6 gap-6"
             >
               <div className="col-span-6">
@@ -73,7 +100,6 @@ const Register = () => {
                   type="text"
                   id="imgUrl"
                   name="imgUrl"
-                  required
                   placeholder="image url"
                   onFocus={() => setError(false)}
                   className="mt-1 w-full rounded-md border-gray-200 bg-gray-100 text-lg text-gray-700 shadow-sm focus:ring-[#1cc65e] active:ring-[#1cc65e] focus:border-[#1cc65e] "
@@ -133,7 +159,7 @@ const Register = () => {
             </div>
             <div className="flex justify-between ">
               <button
-                // onClick={handleGoogleLogin}
+                onClick={handleGoogleLogin}
                 className="py-3 px-6 bg-white border-2 border-[#1cc65e] rounded  mr-4 text-[#1cc65e] text-xl font-medium hover:bg-gray-50 transition"
               >
                 {" "}

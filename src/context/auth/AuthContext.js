@@ -39,10 +39,6 @@ const AuthContextProvider = ({ children }) => {
     return updateProfile(auth.currentUser, profile);
   };
 
-  const verifyEmail = () => {
-    return sendEmailVerification(auth.currentUser);
-  };
-
   const logOut = () => {
     setLoading(true);
     return signOut(auth);
@@ -67,7 +63,6 @@ const AuthContextProvider = ({ children }) => {
     loginProvider,
     logOut,
     updateUserProfile,
-    verifyEmail,
     createUser,
     signIn,
     setUser,
