@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Spinner } from "flowbite-react";
 import Container from "../../shared/Container/Container";
@@ -7,6 +7,7 @@ import ReviewSection from "./ReviewSection";
 
 const Service = () => {
   const { id } = useParams();
+
   const [loading, setLoading] = useState(false);
   const [serviceData, setServiceData] = useState({});
 
@@ -33,7 +34,7 @@ const Service = () => {
       ) : (
         <section className="py-5 px-8 my-10 bg-white rounded-sm shadow-md ">
           <ServiceInfo serviceData={serviceData} />
-          <ReviewSection />
+          <ReviewSection serviceId={id} />
         </section>
       )}
     </Container>
