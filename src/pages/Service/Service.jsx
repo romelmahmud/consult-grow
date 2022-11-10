@@ -11,6 +11,10 @@ const Service = () => {
   const [serviceData, setServiceData] = useState({});
 
   useEffect(() => {
+    document.title = serviceData?.title;
+  }, [serviceData]);
+
+  useEffect(() => {
     setLoading(true);
     fetch(`https://consult-review.vercel.app/service/${id}`)
       .then((res) => res.json())

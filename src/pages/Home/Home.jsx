@@ -4,15 +4,21 @@ import About from "./Components/About/About";
 import Banner from "./Components/Banner/Banner";
 import Services from "./Components/Services/Services";
 import Testimonials from "./Components/Testimonials/Testimonials";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
   return (
-    <Container>
-      <Banner />
-      <Services />
-      <About />
-      <Testimonials />
-    </Container>
+    <>
+      <Helmet>
+        <title>Consult & Grow</title>
+      </Helmet>
+      <Container>
+        <Banner />
+        <Services />
+        <About />
+        <Testimonials />
+      </Container>
+    </>
   );
 };
 

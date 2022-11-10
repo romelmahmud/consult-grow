@@ -20,6 +20,12 @@ const ReviewSection = () => {
               className="block p-2.5 w-full text-lg text-gray-900 bg-gray-200 rounded-lg border border-gray-300 focus:ring-[#1cc65e] focus:border-[#1cc65e] "
               placeholder="Write review..."
             ></textarea>
+            <button
+              type="submit"
+              className="py-1 px-3 mt-4  border border-[#1cc65e] text-[#1cc65e] hover:bg-[#1cc65e] hover:text-white transition rounded-md"
+            >
+              Submit
+            </button>
           </form>
         ) : (
           <Link
