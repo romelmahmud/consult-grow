@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 
 import Review from "./Review";
 
-const ReviewSection = ({ serviceId }) => {
+const ReviewSection = ({ serviceId, serviceTitle }) => {
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
 
@@ -25,6 +25,7 @@ const ReviewSection = ({ serviceId }) => {
 
     const data = {
       service_id: serviceId,
+      serviceTitle,
       userName: user?.displayName,
       userImg: user?.photoURL,
       userId: user?.uid,

@@ -11,6 +11,7 @@ import {
   Services,
   UserReviews,
 } from "../../pages";
+import UpdateReview from "../../pages/UpdateReview/UpdateReview";
 import PrivateRoute from "../PrivateRoutes/PrivateRoutes";
 
 export const routes = createBrowserRouter([
@@ -42,6 +43,10 @@ export const routes = createBrowserRouter([
       {
         path: "/services/:id",
         element: <Service />,
+      },
+      {
+        path: "/updatereview",
+        element: <UpdateReview />,
       },
 
       {

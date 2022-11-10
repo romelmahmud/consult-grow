@@ -34,7 +34,7 @@ const Service = () => {
       ) : (
         <section className="py-5 px-8 my-10 bg-white rounded-sm shadow-md ">
           <ServiceInfo serviceData={serviceData} />
-          <ReviewSection serviceId={id} />
+          <ReviewSection serviceId={id} serviceTitle={serviceData.title} />
         </section>
       )}
     </Container>
