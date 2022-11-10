@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth/AuthContext";
+import Review from "./Review";
 
 const ReviewSection = () => {
   const { user } = useContext(AuthContext);
@@ -28,6 +29,10 @@ const ReviewSection = () => {
             Please Login to write Review
           </Link>
         )}
+        <section className="space-y-4 mt-10">
+          <Review />
+          <Review />
+        </section>
       </section>
     </section>
   );
