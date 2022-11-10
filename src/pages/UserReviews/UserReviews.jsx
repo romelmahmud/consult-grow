@@ -33,19 +33,27 @@ const UserReviews = () => {
       </Helmet>
       <Container>
         <section className="py-10 md:py-12 my-5 md:my-8">
-          <h2 className="text-4xl font-bold text-center text-gray-900">
-            My Reviews
-            <span className="text-[#1cc65e] text-5xl ml-1 ">.</span>
-          </h2>
-          <div className="">
-            {reviews?.map((review) => (
-              <SingleReview
-                key={review.id}
-                userReview={review}
-                handleDelete={handleDelete}
-              />
-            ))}
-          </div>
+          {reviews.length === 0 ? (
+            <p className="text-center font-bold text-3xl mt-20 text-gray-900">
+              User have no review
+            </p>
+          ) : (
+            <>
+              <h2 className="text-4xl font-bold text-center text-gray-900">
+                My Reviews
+                <span className="text-[#1cc65e] text-5xl ml-1 ">.</span>
+              </h2>
+              <div className="">
+                {reviews?.map((review) => (
+                  <SingleReview
+                    key={review.id}
+                    userReview={review}
+                    handleDelete={handleDelete}
+                  />
+                ))}
+              </div>
+            </>
+          )}
         </section>
       </Container>
     </>
