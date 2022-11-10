@@ -1,7 +1,43 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { toast } from "react-hot-toast";
 
 const AddService = () => {
+  const navigate = useNavigate();
+  const url = "https://consult-review.vercel.app/service";
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const title = form.title.value;
+    const imgUrl = form.imgUrl.value;
+    const price = form.price.value;
+    const description = form.description.value;
+
+    console.log(title, imgUrl, price, description);
+
+    const data = {
+      title,
+      img_url: imgUrl,
+      price,
+      description,
+    };
+
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        form.reset();
+        toast.success("Service Added Successfully.");
+        navigate("/services");
+      });
+  };
+
   return (
     <>
       <Helmet>
@@ -12,14 +48,13 @@ const AddService = () => {
           <div className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:py-10 lg:px-10 xl:col-span-6   rounded-md bg-white shadow-xl w-full">
             <div className="">
               <div className="flex items-center justify-center mb-6">
-                {/* <img src={img} alt="" className="h-12 w-12 mr-4" /> */}
                 <h1 className="text-4xl  font-semibold text-center  text-gray-800">
                   Add a Service
                 </h1>
               </div>
 
               <form
-                // onSubmit={handleSubmit}
+                onSubmit={handleSubmit}
                 className="mt-4 grid grid-cols-12 gap-6"
               >
                 <div className="col-span-12">
@@ -55,6 +90,7 @@ const AddService = () => {
                 <div className="col-span-12 ">
                   <textarea
                     id="description"
+                    name="description"
                     rows="6"
                     className="block p-2.5 w-full text-lg text-gray-900 bg-gray-100 rounded-lg border border-gray-200 focus:ring-[#1cc65e] focus:border-[#1cc65e] "
                     placeholder="Description"
