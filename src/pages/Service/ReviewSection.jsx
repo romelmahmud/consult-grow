@@ -9,9 +9,7 @@ const ReviewSection = ({ serviceId }) => {
   const [reviews, setReviews] = useState([]);
 
   useState(() => {
-    fetch(
-      `https://consult-review.vercel.app/service/review/636b2839f4cc5db0f8d824a8`
-    )
+    fetch(`https://consult-review.vercel.app/service/review/${serviceId}`)
       .then((res) => res.json())
       .then((data) => {
         setReviews(data.data);
@@ -86,7 +84,7 @@ const ReviewSection = ({ serviceId }) => {
               No review found, please give review{" "}
             </p>
           ) : (
-            <div>
+            <div className="space-y-4">
               {reviews.map((review) => (
                 <Review key={review._id} review={review} />
               ))}
