@@ -30,9 +30,25 @@ const Login = () => {
     signIn(email, password)
       .then(() => {
         form.reset();
-        toast.success("login Successful");
+        const currentUser = {
+          email,
+          password,
+        };
+        fetch("https://consult-review.vercel.app/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
 
-        navigate(from, { replace: true });
+            localStorage.setItem("genius-token", data.token);
+            toast.success("login Successful");
+            navigate(from, { replace: true });
+          });
       })
       .catch((err) => setError(true));
   };
